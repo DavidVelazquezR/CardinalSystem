@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/DavidVelazquezR/CardinalSystem/issues"
   },
-  "homepage": "https://github.com/DavidVelazquezR/CardinalSystem#readme"
+  "homepage": "https://github.com/DavidVelazquezR/CardinalSystem#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
 }
