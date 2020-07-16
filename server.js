@@ -5,8 +5,7 @@ const {
 } = require("discord.js");
 const bot = new Client();
 
-const token = "NzMzMTQ1NDUyNDYzMTI4NjE3.Xw_Gmw.Nthi4CeQxt9hnH34JrGSVQEBqAk";
-const comando = ">";
+const token = "NzMzMTQ1NDUyNDYzMTI4NjE3.Xw__tA.27Rxqjz7_GIIzLYo7a7JsmgN1e0";
 
 
 bot.on("ready", () => {
@@ -15,39 +14,51 @@ bot.on("ready", () => {
 
  bot.on("message", (message) => {  
 
-  let datos = message.content.substring(comando.length).split(" ");
-  if (datos[0] === "play") 
+  let comando = message.content.substring(0,1);
+  if (comando === ">") 
   {
-    if (datos[1] === undefined) 
+    console.log("Simbolo > reconocido !!");  
+    let comando2 = message.content.substring(1).split(" ");
+    console.log("1: " + comando2[0]);
+    console.log("2: " + comando2[1]);
+    let comandoxd = comando2[0] +" "+ comando2[1];
+    console.log("SUMA:" + comandoxd);
+    if (comandoxd=== "sc play") 
     {
-      message.channel.send("Necesitas un nombre o URL de la cancion");
-    }else
+      if (comando2[2] === undefined) 
+      {
+        console.log("Cancion: " + comando2[2]);
+        message.channel.send("Necesitas el nombre o URL de la cancion !!");
+      }else
+      {
+        let cancion = message.content.substring(8,message.content.length);
+        message.channel.send("Cancion a buscar: " + cancion);
+        console.log("Comando play aceptado");     
+      }
+    } else if (comandoxd === "sc pause") 
     {
-      message.channel.send("Reproduciendo cancion...");
+      message.channel.send("Comando pausa aceptado");   
+    }else 
+    {
+      message.channel.send("El comando no existe !!");
     }
-    console.log("DATO 1: " + datos[1]);
-  }else
-  {
-    message.channel.send("Comando incorrecto");
   }
 
    if (message.content === ">help") {
      const embed = new MessageEmbed()
      .setColor("BLUE")
-     .addField("Buscar cancion", ">sc play")
-     .addField("Pausar cancion", ">sc pause");
+     .addField("Modulo de musica", ">sc play  -  Reproducir cancion \n" +
+     ">sc pause  -  Pausar cancion");
      const embed2 = new MessageEmbed()
      .setColor("BLUE")
-     .addField("Ayuda de comancdos", ">help");
+     .addField("Ayuda de comandos", ">help");
      message.channel.send(`----- Comandos aceptados para Cardinal System -----`);
-     message.channel.send(`    * Modulo de ayuda *`);
      message.channel.send(embed2);
-     message.channel.send(`    * Modulo de musica *`);
      message.channel.send(embed);
    }
 
    if (message.content === "hola") {
-     message.channel.send(`Hola ${message.author} Bienvenido`);
+     message.channel.send(`Wassup dude ${message.author} Bienvenido`);
    }
 
  });
