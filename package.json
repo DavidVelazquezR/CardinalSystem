@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/DavidVelazquezR/CardinalSystem#readme",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.2.0",
+    "ffmpeg-static": "^4.2.5",
+    "opusscript": "0.0.7",
+    "yt-search": "^2.1.3",
+    "ytdl-core": "^3.1.2"
   }
 }
